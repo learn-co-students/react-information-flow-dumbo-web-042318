@@ -14,23 +14,20 @@ export default class Tier1 extends Component {
     }
   }
 
-  handleClick = (e) => {
+  handleClick = () => {
     const color = getRandomColor()
-    if (e.target.className === "tier1") {
-      this.setState({
-        color,
-        childColor: getReducedColor(color)
-      }) 
-    }
+    this.setState({
+      color,
+      childColor: getReducedColor(color)
+    }) 
   }
 
   handleChildClick = (e) => {
     console.log('child clicked');
-    if (e.target.className === 'tier2') {
+    e.stopPropagation()
       this.setState({
         childColor: getRandomColor()
       }) 
-    }
   }
 
   render() {

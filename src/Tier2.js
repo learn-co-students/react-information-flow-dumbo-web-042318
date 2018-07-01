@@ -22,11 +22,10 @@ export default class Tier2 extends Component {
   
   handleGrandchildClick = (e) => {
     console.log('granchild clicked');
-    if (e.target.className === 'tier3') {
-      this.setState({
-        childColor: getRandomColor()
-      })
-    }
+    e.stopPropagation()
+    this.setState({
+      childColor: getRandomColor()
+    })
   }
 
   render() {
